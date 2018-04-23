@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-US">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1" DataProcessingMode="Client">
+      <Name>SQL Data Source 1</Name>
+      <Connection Name="nwind" ProviderKey="InMemorySetFull">
+        <Parameters>
+          <Parameter Name="database" Value="..\..\Data\nwind.xml" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="Orders">
+        <Tables>
+          <Table Name="Orders" />
+          <Table Name="[Order Details]" />
+          <Relation Type="Inner" Parent="Orders" Nested="[Order Details]">
+            <KeyColumn Parent="OrderID" Nested="OrderID" />
+          </Relation>
+        </Tables>
+        <Columns>
+          <Column Table="Orders" Name="OrderDate" />
+          <Column Table="[Order Details]" Name="UnitPrice" />
+          <Column Table="[Order Details]" Name="Quantity" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 1">
+          <View Name="Orders">
+            <Field Name="OrderDate" Type="DateTime" />
+            <Field Name="UnitPrice" Type="Decimal" />
+            <Field Name="Quantity" Type="Int16" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="300" />
+      <CalculatedFields>
+        <CalculatedField Name="Sales" Expression="[UnitPrice] * [Quantity]" DataType="Object" DataMember="Orders" />
+        <CalculatedField Name="Sales by Year" Expression="Aggr(Sum([Sales]), GetYear([OrderDate]))" DataType="Object" DataMember="Orders" />
+        <CalculatedField Name="Percent of Total" Expression="Sum([Sales]) / Max([Sales by Year])" DataType="Object" DataMember="Orders" />
+      </CalculatedFields>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Pivot ComponentName="pivotDashboardItem1" Name="Sales by Year/Quarter" DataSource="dashboardSqlDataSource1" DataMember="Orders">
+      <DataItems>
+        <Measure DataMember="Sales" UniqueName="DataItem2" />
+        <Dimension DataMember="OrderDate" UniqueName="DataItem0" />
+        <Dimension DataMember="OrderDate" DateTimeGroupInterval="Quarter" UniqueName="DataItem1" />
+        <Measure DataMember="Percent of Total" UniqueName="DataItem3">
+          <NumericFormat FormatType="Percent" />
+        </Measure>
+      </DataItems>
+      <Rows>
+        <Row UniqueName="DataItem0" />
+        <Row UniqueName="DataItem1" />
+      </Rows>
+      <Values>
+        <Value UniqueName="DataItem2" />
+        <Value UniqueName="DataItem3" />
+      </Values>
+      <AutoExpandRowGroups>true</AutoExpandRowGroups>
+    </Pivot>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="pivotDashboardItem1" Weight="49.939975990396157" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
