@@ -24,24 +24,30 @@
         /// </summary>
         private void InitializeComponent() {
             this.dashboardDesigner1 = new DevExpress.DashboardWin.DashboardDesigner();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardDesigner1)).BeginInit();
             this.SuspendLayout();
             // 
             // dashboardDesigner1
             // 
+            this.dashboardDesigner1.AllowMaximizeAnimation = true;
+            this.dashboardDesigner1.AllowMaximizeDashboardItems = true;
+            this.dashboardDesigner1.AllowPrintDashboard = true;
+            this.dashboardDesigner1.AllowPrintDashboardItems = true;
             this.dashboardDesigner1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dashboardDesigner1.Location = new System.Drawing.Point(0, 0);
             this.dashboardDesigner1.Name = "dashboardDesigner1";
-            this.dashboardDesigner1.Size = new System.Drawing.Size(1270, 715);
+            this.dashboardDesigner1.Size = new System.Drawing.Size(770, 525);
             this.dashboardDesigner1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1270, 715);
+            this.ClientSize = new System.Drawing.Size(770, 525);
             this.Controls.Add(this.dashboardDesigner1);
             this.Name = "Form1";
             this.Text = "Dashboard Designer";
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardDesigner1)).EndInit();
             this.ResumeLayout(false);
 
         }

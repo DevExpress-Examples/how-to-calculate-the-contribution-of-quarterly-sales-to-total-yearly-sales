@@ -3,11 +3,9 @@
 
 * [Form1.cs](./CS/Dashboard_AggrPercentOfTotal/Form1.cs) (VB: [Form1.vb](./VB/Dashboard_AggrPercentOfTotal/Form1.vb))
 <!-- default file list end -->
-# How to calculate a contribution of individual quarter sales to a year sales
+# How to Calculate a Contribution of Individual Quarter Sales to Year Sales
 
 
-This example shows how to calculate a contribution of individual quarter sales to a year sales. To learn more, see examples from the <a href="https://documentation.devexpress.com/#Dashboard/CustomDocument115870">Intermediate Level Aggregations</a> topic.
+This example shows how to calculate a contribution of individual quarter sales to the year sales. Refer to the [Intermediate Level Aggregations](https://docs.devexpress.com/Dashboard/115870) topic for more information.
 
-<br/>
-
-
+![screenshot](/images/screenshot.png)
