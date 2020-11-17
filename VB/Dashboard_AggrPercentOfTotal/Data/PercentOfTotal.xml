@@ -38,7 +38,7 @@
       <CalculatedFields>
         <CalculatedField Name="Sales" Expression="[UnitPrice] * [Quantity]" DataType="Object" DataMember="Orders" />
         <CalculatedField Name="Sales by Year" Expression="Aggr(Sum([Sales]), GetYear([OrderDate]))" DataType="Object" DataMember="Orders" />
-        <CalculatedField Name="Percent of Total" Expression="Sum([Sales]) / Max([Sales by Year])" DataType="Object" DataMember="Orders" />
+        <CalculatedField Name="Percent of Total" Expression="Sum([Sales]) / Sum([Sales by Year])" DataType="Object" DataMember="Orders" />
       </CalculatedFields>
     </SqlDataSource>
   </DataSources>
