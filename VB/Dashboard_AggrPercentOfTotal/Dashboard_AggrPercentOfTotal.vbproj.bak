@@ -56,7 +56,6 @@
     <Reference Include="DevExpress.RichEdit.v18.2.Export" />
     <Reference Include="DevExpress.Printing.v18.2.Core" />
     <Reference Include="DevExpress.RichEdit.v18.2.Core" />
-    <Reference Include="DevExpress.Data.Desktop.v18.2" />
     <Reference Include="DevExpress.Utils.v18.2" />
     <Reference Include="DevExpress.Sparkline.v18.2.Core" />
     <Reference Include="DevExpress.Utils.v18.2.UI" />
@@ -79,6 +78,7 @@
     <Reference Include="DevExpress.XtraReports.v18.2" />
     <Reference Include="DevExpress.Images.v18.2" />
     <Reference Include="DevExpress.XtraRichEdit.v18.2" />
+    <Reference Include="DevExpress.XtraRichEdit.v18.2.Extensions" />
     <Reference Include="DevExpress.XtraTreeList.v18.2" />
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -2,8 +2,7 @@
 <Dashboard CurrencyCulture="en-US">
   <Title Text="Dashboard" />
   <DataSources>
-    <SqlDataSource ComponentName="dashboardSqlDataSource1" DataProcessingMode="Client">
-      <Name>SQL Data Source 1</Name>
+    <SqlDataSource Name="SQL Data Source 1" ComponentName="dashboardSqlDataSource1" DataProcessingMode="Client">
       <Connection Name="nwind" ProviderKey="InMemorySetFull">
         <Parameters>
           <Parameter Name="database" Value="..\..\Data\nwind.xml" />
@@ -34,31 +33,31 @@
           </View>
         </DataSet>
       </ResultSchema>
-      <ConnectionOptions CloseConnection="true" CommandTimeout="300" />
+      <ConnectionOptions CloseConnection="true" DbCommandTimeout="300" />
       <CalculatedFields>
         <CalculatedField Name="Sales" Expression="[UnitPrice] * [Quantity]" DataType="Object" DataMember="Orders" />
-        <CalculatedField Name="Sales by Year" Expression="Aggr(Sum([Sales]), GetYear([OrderDate]))" DataType="Object" DataMember="Orders" />
-        <CalculatedField Name="Percent of Total" Expression="Sum([Sales]) / Sum([Sales by Year])" DataType="Object" DataMember="Orders" />
+        <CalculatedField Name="Grand Total Sales" Expression="Aggr(Sum([Sales]))" DataType="Auto" DataMember="Orders" />
+        <CalculatedField Name="Percent of Grand Total" Expression="Sum([Sales]) / Sum([Grand Total Sales])" DataType="Auto" DataMember="Orders" />
       </CalculatedFields>
     </SqlDataSource>
   </DataSources>
   <Items>
     <Pivot ComponentName="pivotDashboardItem1" Name="Sales by Year/Quarter" DataSource="dashboardSqlDataSource1" DataMember="Orders">
       <DataItems>
-        <Measure DataMember="Sales" UniqueName="DataItem2" />
-        <Dimension DataMember="OrderDate" UniqueName="DataItem0" />
-        <Dimension DataMember="OrderDate" DateTimeGroupInterval="Quarter" UniqueName="DataItem1" />
-        <Measure DataMember="Percent of Total" UniqueName="DataItem3">
+        <Measure DataMember="Sales" DefaultId="DataItem2" />
+        <Dimension DataMember="OrderDate" DefaultId="DataItem0" />
+        <Dimension DataMember="OrderDate" DateTimeGroupInterval="Quarter" DefaultId="DataItem1" />
+        <Measure DataMember="Percent of Grand Total" DefaultId="DataItem3">
           <NumericFormat FormatType="Percent" />
         </Measure>
       </DataItems>
       <Rows>
-        <Row UniqueName="DataItem0" />
-        <Row UniqueName="DataItem1" />
+        <Row DefaultId="DataItem0" />
+        <Row DefaultId="DataItem1" />
       </Rows>
       <Values>
-        <Value UniqueName="DataItem2" />
-        <Value UniqueName="DataItem3" />
+        <Value DefaultId="DataItem2" />
+        <Value DefaultId="DataItem3" />
       </Values>
       <AutoExpandRowGroups>true</AutoExpandRowGroups>
     </Pivot>
