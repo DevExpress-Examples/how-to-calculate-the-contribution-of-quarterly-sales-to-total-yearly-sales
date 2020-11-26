@@ -6,6 +6,6 @@
 # How to Calculate a Contribution of Individual Quarter Sales to Grand Total Sales
 
 
-This example shows how to calculate a contribution of individual quarter sales to the year sales. Refer to the [Intermediate Level Aggregations](https://docs.devexpress.com/Dashboard/115870) topic for more information.
+This example shows how to calculate a contribution of individual quarter sales to the grand total sales. Refer to the [Intermediate Level Aggregations](https://docs.devexpress.com/Dashboard/115870) topic for more information.
 
 ![screenshot](/images/screenshot.png)
