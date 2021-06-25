@@ -14,19 +14,14 @@ In this example, the [Pivot](https://docs.devexpress.com/Dashboard/15266/winform
 
 ![screenshot](/images/aggr_example2_salesbyquarteryear122821.png)
 
-The following expressions calculate quarterly sales as a percentage of total sales.
+The following expressions calculate quarterly sales as a percentage of total sales:
 
-- Grand Total Sales:
+| Calculated Field | Expression |
+| --- | --- |
+| Grand Total Sales | ``` aggr(Sum([Sales])) ``` |
+| Percent of Grand Total | ``` Sum([Sales]) / Sum([Grand Total Sales]) ``` |
 
-```
- aggr(Sum([Sales]))
-```
-
-- Percent of Grand Total:
-
-```
-Sum([Sales]) / Sum([Grand Total Sales])
-```
+The following screenshot demonstrates the final result:
 
 ![screenshot](/images/aggr_example2_salesbyquarteryear_percentoftotal122822.png)
 
